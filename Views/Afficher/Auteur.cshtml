@@ -18,7 +18,7 @@
     {
         <tr>
             <td>
-                <a href="/Afficher/Livre/@item.Id">@item.Titre</a>
+                @Html.ActionLink(@item.Titre, "Livre", "Afficher")
             </td>
             <td>
                 @item.DateParution

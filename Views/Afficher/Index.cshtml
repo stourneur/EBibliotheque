@@ -15,10 +15,10 @@
 @foreach (var item in @Model) {
     <tr>
         <td>
-            <a href="/Afficher/Livre/@item.Id">@item.Titre</a>
+            @Html.ActionLink(@item.Titre, "Livre", "Afficher", new { id = @item.Id}, null)
         </td>
         <td>
-            <a href="/Afficher/Auteur/@item.Auteur.Id">@item.Auteur.Nom</a>
+            @Html.ActionLink(@item.Auteur.Nom, "Auteur", "Afficher", new { id= @item.Auteur.Id}, null)
         </td>
     </tr>
 }

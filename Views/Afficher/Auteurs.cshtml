@@ -14,7 +14,7 @@
 @foreach (var item in @Model) {
     <tr>
         <td>
-            <a href="/Afficher/Auteur/@item.Id">@item.Nom</a>
+            @Html.ActionLink(@item.Nom, "Auteur", "Afficher", new { id = item.Id}, null)
         </td>
     </tr>
 }
