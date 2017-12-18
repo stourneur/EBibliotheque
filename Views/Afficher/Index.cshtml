@@ -1,0 +1,26 @@
+﻿@model List<EBibliotheque.Models.Livre>
+
+@{
+    ViewBag.Title = "AfficherLivres";
+}
+
+<h2>Liste des livres</h2>
+
+<table class="table">
+    <tr>
+        <th>Titres</th>
+        <th>Nom Auteur</th>
+    </tr>
+
+@foreach (var item in @Model) {
+    <tr>
+        <td>
+            <a href="/Afficher/Livre/@item.Id">@item.Titre</a>
+        </td>
+        <td>
+            <a href="/Afficher/Auteur/@item.Auteur.Id">@item.Auteur.Nom</a>
+        </td>
+    </tr>
+}
+
+</table>

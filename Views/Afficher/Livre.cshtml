@@ -1,0 +1,26 @@
+﻿@model EBibliotheque.Models.Livre
+
+@{
+    ViewBag.Title = "AfficherLivre";
+}
+
+<h2>Details du livre @Model.Titre</h2>
+
+<table class="table">
+    <tr>
+        <th>Titres</th>
+        <th>Date de parution</th>
+        <th>Emprunter</th>
+    </tr>
+    <tr>
+        <td>
+            @Model.Titre
+        </td>
+        <td>
+            @Model.DateParution
+        </td>
+        <td>
+            @Model.Client.Nom
+        </td>
+    </tr>
+</table>

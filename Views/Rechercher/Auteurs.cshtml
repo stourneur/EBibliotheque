@@ -1,0 +1,30 @@
+﻿@using System.Web.Mvc.Html
+@model IEnumerable<EBibliotheque.Models.Auteur>
+
+<h2>Auteurs</h2>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink(item.Nom, "Auteur", "Afficher", new {id = item.Id}, null)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+  <p>Pas d'auteur trouvé</p>
+}

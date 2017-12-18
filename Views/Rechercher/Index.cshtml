@@ -1,0 +1,25 @@
+﻿@using System.Web.UI.WebControls
+@using EBibliotheque.Controllers
+@model EBibliotheque.ViewModels.RechercherViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Rechercher</h2>
+
+@using (Html.BeginForm("Index", "Rechercher"))
+{
+    @Html.TextBoxFor(model => model.Rechercher, new { @class="form-control", placeholder = "Rechercher"})
+
+}
+
+@if (Model != null)
+{
+    @Html.Partial("Auteurs", Model.Auteurs)
+}
+
+@if (Model != null)
+{
+    @Html.Partial("Livres", Model.Livres)
+}
