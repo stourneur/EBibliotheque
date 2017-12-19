@@ -28,9 +28,9 @@ namespace EBibliotheque.Controllers
             if (id != null)
             {
                 vm.Livres =
-                    Livres.ObtenirListeLivres().FindAll(l => l.Titre.ToLowerInvariant().Contains(id.ToLowerInvariant()));
+                    Livres.ListeLivres.FindAll(l => l.Titre.ToLowerInvariant().Contains(id.ToLowerInvariant()));
                 vm.Auteurs =
-                    Livres.ObtenirListeAuteurs().FindAll(a => a.Nom.ToLowerInvariant().Contains(id.ToLowerInvariant()));
+                    Livres.ListeAuteurs.FindAll(a => a.Nom.ToLowerInvariant().Contains(id.ToLowerInvariant()));
             }
 
             return View(vm);

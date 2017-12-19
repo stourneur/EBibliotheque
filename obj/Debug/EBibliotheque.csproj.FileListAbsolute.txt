@@ -73,3 +73,4 @@ C:\Users\Sebastien\Documents\Visual Studio 2015\Projects\EBibliotheque\EBiblioth
 C:\Users\Sebastien\Documents\Visual Studio 2015\Projects\EBibliotheque\EBibliotheque\bin\roslyn\System.Xml.XPath.XDocument.dll
 C:\Users\Sebastien\Documents\Visual Studio 2015\Projects\EBibliotheque\EBibliotheque\bin\roslyn\vbc.exe.config
 C:\Users\Sebastien\Documents\Visual Studio 2015\Projects\EBibliotheque\EBibliotheque\bin\roslyn\vbc.rsp
+C:\Users\Sebastien\Documents\Visual Studio 2015\Projects\EBibliotheque\EBibliotheque\bin\MvcValidationExtensions.dll

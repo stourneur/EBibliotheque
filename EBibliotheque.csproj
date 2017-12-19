@@ -48,6 +48,10 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MvcValidationExtensions, Version=1.1.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvcValidationExtensions.1.1.4.0\lib\net45\MvcValidationExtensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -111,7 +115,13 @@
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\mvcvalidationextensions.unobtrusive.js" />
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
@@ -122,6 +132,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AfficherController.cs" />
     <Compile Include="Controllers\AccueilController.cs" />
+    <Compile Include="Controllers\AjouterController.cs" />
     <Compile Include="Controllers\RechercherController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -132,6 +143,7 @@
     <Compile Include="Models\Livres.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\AfficherViewModel.cs" />
+    <Compile Include="ViewModels\AjouterViewModel.cs" />
     <Compile Include="ViewModels\RechercherViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +158,7 @@
     <Content Include="Views\Rechercher\Index.cshtml" />
     <Content Include="Views\Rechercher\Auteurs.cshtml" />
     <Content Include="Views\Rechercher\Livres.cshtml" />
+    <Content Include="Views\Ajouter\Livre.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

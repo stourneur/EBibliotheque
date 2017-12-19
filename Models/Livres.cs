@@ -7,6 +7,10 @@ namespace EBibliotheque.Models
 {
     public static class Livres
     {
+
+        public static List<Livre> ListeLivres = ObtenirListeLivres();
+        public static List<Auteur> ListeAuteurs = ObtenirListeAuteurs(); 
+
         // Retourne une list d'auteurs
         public static List<Auteur> ObtenirListeAuteurs()
         {
@@ -56,7 +60,7 @@ namespace EBibliotheque.Models
             if (id == null || id == 0)
                 return null;
 
-            List<Livre> livres = ObtenirListeLivres().FindAll(l => l.Auteur.Id == id);
+            List<Livre> livres = ListeLivres.FindAll(l => l.Auteur.Id == id);
             return livres;
         }
         // Retourne une liste de livre par id
@@ -66,8 +70,19 @@ namespace EBibliotheque.Models
             if (id == null)
                 return null;
 
-            Livre livre = ObtenirListeLivres().Find(l => l.Id == id);
+            Livre livre = ListeLivres.Find(l => l.Id == id);
             return livre;
+        }
+
+        public static int? AjouterLivre(Livre livre)
+        {
+            if (livre == null)
+                return null;
+
+            List<Livre> livres = ListeLivres;
+            livre.Id = livres.Last().Id + 1;
+            livres.Add(livre);
+            return livre.Id;
         }
     }
 }

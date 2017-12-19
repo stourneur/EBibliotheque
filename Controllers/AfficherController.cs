@@ -25,14 +25,12 @@ namespace EBibliotheque.Controllers
 
         public ActionResult Index()
         {
-            List<Livre> livres = Livres.ObtenirListeLivres();
-            return View(livres);
+            return View(Livres.ListeLivres);
         }
 
         public ActionResult Auteurs()
         {
-            List<Auteur> auteurs = Livres.ObtenirListeAuteurs();
-            return View(auteurs);
+            return View(Livres.ListeAuteurs);
         }
 
         public ActionResult Auteur(int? id)

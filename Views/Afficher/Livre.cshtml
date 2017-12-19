@@ -10,6 +10,7 @@
     <tr>
         <th>Titres</th>
         <th>Date de parution</th>
+        <th>Nom de l'auteur</th>
         <th>Emprunter</th>
     </tr>
     <tr>
@@ -18,6 +19,9 @@
         </td>
         <td>
             @Model.DateParution
+        </td>
+        <td>
+            @Model.Auteur.Nom
         </td>
         <td>
             @Model.Client.Nom
