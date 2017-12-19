@@ -24,7 +24,10 @@
             @Model.Auteur.Nom
         </td>
         <td>
-            @Model.Client.Nom
+            @if (Model.Client != null)
+            {
+                @Model.Client.Nom
+            }
         </td>
     </tr>
 </table>

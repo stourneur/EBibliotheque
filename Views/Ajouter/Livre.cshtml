@@ -33,7 +33,6 @@
             @Html.LabelFor(model => model.Livre.Auteur.Nom, htmlAttributes: new { @class = "control-label col-md-2", @for = "Auteurs" })
             <div class="col-md-10">
                 @Html.DropDownListFor(model => model.Auteurs, new SelectList(Model.Auteurs, "Id", "Nom"),  new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.Livre.Auteur.Nom, "", new { @class = "text-danger", data_valmsg_for = "Auteurs" })
             </div>
         </div>
 

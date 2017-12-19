@@ -16,9 +16,6 @@ namespace EBibliotheque.Controllers
             // Si le livre est null on retourne une Vue Erreur
             if (livre == null)
                 return View("Error");
-            // Si le livre.Client on instancie un nouveau Client pour évité d'avoir un null
-            if (livre.Client == null)
-                livre.Client = new Client();
 
             return View(livre);
         }
