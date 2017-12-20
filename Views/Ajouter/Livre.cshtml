@@ -32,7 +32,7 @@
         <div class="form-group">
             @Html.LabelFor(expression: model => model.Livre.Auteur.Nom, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(expression: model => model.Livre.Auteur.Nom, selectList: Model.Auteurs, htmlAttributes: new { @class = "form-control"})
+                @Html.DropDownListFor(expression: model => model.Livre.Auteur.Nom, selectList: (SelectList)Model.Auteurs, htmlAttributes: new { @class = "form-control"})
                 @Html.ValidationMessageFor(expression: model => model.Livre.Auteur.Nom, validationMessage: "", htmlAttributes: new { @class = "text-danger"})
             </div>
         </div>

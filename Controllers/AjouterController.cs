@@ -29,6 +29,13 @@ namespace EBibliotheque.Controllers
                 vm.Auteurs = new SelectList(Livres.ListeAuteurs, "Id", "Nom");
                 return View(vm);
             }
+            foreach (var listeLivre in Livres.ListeLivres)
+            {
+                if (vm.Livre.Titre.ToLowerInvariant().Equals(listeLivre.Titre.ToLowerInvariant()))
+                {
+                    return View(vm);
+                }
+            }
 
             vm.Livre.Auteur = Livres.ListeAuteurs.Find(a => a.Id == Int32.Parse(Request.Form["Livre.Auteur.Nom"]));
 
