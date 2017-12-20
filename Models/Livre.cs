@@ -15,7 +15,7 @@ namespace EBibliotheque.Models
         public string Titre { get; set; }
         [Required(ErrorMessage = "La date de parution doit être saisie")]
         [Display(Name = "Date de parution")]
-        public string DateParution { get; set; }
+        public DateTime DateParution { get; set; }
         public Auteur Auteur { get; set; }
         public Client Client { get; set; }
     }

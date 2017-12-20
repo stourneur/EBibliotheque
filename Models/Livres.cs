@@ -37,13 +37,14 @@ namespace EBibliotheque.Models
             return new List<Livre>
             {
                 // Création des livres
-                new Livre { Id = 1, Titre = "ASP.NET avec C# sous Visual Studio 2017", Auteur = auteur1, DateParution = "2017", Client = client1},
-                new Livre { Id = 2, Titre = "ASP.NET avec C# sous Visual Studio 2015", Auteur = auteur1, DateParution = "2016", Client = client1},
-                new Livre { Id = 3, Titre = "C# 7 et Visual Sudio 2017", Auteur = auteur2, DateParution = "2017"},
-                new Livre { Id = 4, Titre = "Entity Framework Core", Auteur = auteur2, DateParution = "2017", Client = client2},
-                new Livre { Id = 5, Titre = "Angular", Auteur = auteur3, DateParution = "2017"}
+                new Livre { Id = 1, Titre = "ASP.NET avec C# sous Visual Studio 2017", Auteur = auteur1, DateParution = new DateTime(2017, 9,1), Client = client1},
+                new Livre { Id = 2, Titre = "ASP.NET avec C# sous Visual Studio 2015", Auteur = auteur1, DateParution = new DateTime(2016, 2, 1), Client = client1},
+                new Livre { Id = 3, Titre = "C# 7 et Visual Sudio 2017", Auteur = auteur2, DateParution = new DateTime(2017, 9, 1)},
+                new Livre { Id = 4, Titre = "Entity Framework Core", Auteur = auteur2, DateParution = new DateTime(2017, 2, 1), Client = client2},
+                new Livre { Id = 5, Titre = "Angular", Auteur = auteur3, DateParution = new DateTime(2017, 7 ,1)}
             };
         }
+
         // Retourne une liste de clients
         public static List<Client> ObtenirListeClients()
         {

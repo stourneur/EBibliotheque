@@ -18,10 +18,10 @@
             @Model.Titre
         </td>
         <td>
-            @Model.DateParution
+            @Model.DateParution.ToString("dd/MM/yyyy")
         </td>
         <td>
-            @Model.Auteur.Nom
+            @Html.ActionLink(Model.Auteur.Nom, "Auteur", "Afficher", new { id = Model.Auteur.Id}, null )
         </td>
         <td>
             @if (Model.Client != null)

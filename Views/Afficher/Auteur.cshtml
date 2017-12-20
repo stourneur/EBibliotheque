@@ -20,7 +20,7 @@
                 @Html.ActionLink(@item.Titre, "Livre", "Afficher", new { id = item.Id}, null)
             </td>
             <td>
-                @item.DateParution
+                @item.DateParution.ToString("dd/MM/yyyy")
             </td>
         </tr>
     }

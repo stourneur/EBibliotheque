@@ -13,27 +13,28 @@ namespace EBibliotheque.Controllers
         // GET: Ajouter
         public ActionResult Livre()
         {
-            AjouterViewModel vm = new AjouterViewModel();
-            vm.Auteurs = Livres.ListeAuteurs;
+            AjouterViewModel vm = new AjouterViewModel
+            {
+                Auteurs = Livres.ListeAuteurs
+            };
 
             return View(vm);
         }
 
         [HttpPost]
-        public ActionResult Livre(Livre livre)
+        public ActionResult Livre(AjouterViewModel vm)
         {
-            ViewBag.livre = livre;
-            AjouterViewModel vm = new AjouterViewModel();
-            vm.Livre = livre;
-
             if (!ModelState.IsValid)
+            {
+                vm.Auteurs = Livres.ListeAuteurs;
                 return View(vm);
+            }
 
-            livre.Auteur = Livres.ListeAuteurs.Find(a => a.Id == Int32.Parse(Request.Form["Auteurs"]));
+            vm.Livre.Auteur = Livres.ListeAuteurs.Find(a => a.Id == Int32.Parse(Request.Form["Livre.Auteur.Nom"]));
 
-            Livres.AjouterLivre(livre);
+            Livres.AjouterLivre(vm.Livre);
 
-            return RedirectToAction("Livre", "Afficher", new { id = livre.Id});
+            return RedirectToAction("Livre", "Afficher", new { id = vm.Livre.Id});
         }
     }
 }
