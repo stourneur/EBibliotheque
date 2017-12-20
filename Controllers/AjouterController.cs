@@ -15,7 +15,7 @@ namespace EBibliotheque.Controllers
         {
             AjouterViewModel vm = new AjouterViewModel
             {
-                Auteurs = Livres.ListeAuteurs
+                Auteurs = new SelectList(Livres.ListeAuteurs, "Id", "Nom")
             };
 
             return View(vm);
@@ -26,7 +26,7 @@ namespace EBibliotheque.Controllers
         {
             if (!ModelState.IsValid)
             {
-                vm.Auteurs = Livres.ListeAuteurs;
+                vm.Auteurs = new SelectList(Livres.ListeAuteurs, "Id", "Nom");
                 return View(vm);
             }
 
