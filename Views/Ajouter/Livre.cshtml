@@ -4,36 +4,59 @@
     ViewBag.Title = "Index";
 }
 
+<script type="text/javascript">
+    jQuery.validator.addMethod("titreexiste",
+        function(value, element, params) {
+            var titre = $("#" + params.titre).val();
+            var bool = true;
+            var livres = JSON.parse('@Html.Raw(Json.Encode(Model.Livres))');
+
+            for (var i = 0; i < livres.length; i++) {
+                if (livres[i].Titre.toLowerCase() === titre.toLowerCase()) {
+                    bool = false;
+                }
+            }
+            return bool;
+        });
+
+    jQuery.validator.unobtrusive.adapters.add
+        ("titreexiste", ["titre"], function (options) {
+            options.rules["titreexiste"] = options.params;
+            options.messages["titreexiste"] = options.message;
+        });
+</script>
+
+
 <h2>Ajouter un Livre</h2>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(excludePropertyErrors: true, message: "", htmlAttributes: new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(expression: model => model.Livre.Titre, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(expression: model => model.Livre.Titre, htmlAttributes: new { @class = "control-label col-md-2", @for = "Titre" })
             <div class="col-md-10">
-                @Html.TextBoxFor(expression: model => model.Livre.Titre, htmlAttributes: new { @class = "form-control" } )
+                @Html.TextBoxFor(expression: model => model.Livre.Titre, htmlAttributes: new { @class = "form-control", @id = "Titre" })
                 @Html.ValidationMessageFor(expression: model => model.Livre.Titre, validationMessage: "", htmlAttributes: new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(expression: model => model.Livre.DateParution, htmlAttributes: new {@class = "control-label col-md-2"})
+            @Html.LabelFor(expression: model => model.Livre.DateParution, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(expression: model => model.Livre.DateParution, htmlAttributes: new {type = "date" , placeholder = "aaaa/mm/jj", @class = "form-control"})
-                @Html.ValidationMessageFor(expression: model => model.Livre.DateParution, validationMessage: "", htmlAttributes: new {@class = "text-danger"})
+                @Html.TextBoxFor(expression: model => model.Livre.DateParution, htmlAttributes: new { type = "date", placeholder = "aaaa/mm/jj", @class = "form-control" })
+                @Html.ValidationMessageFor(expression: model => model.Livre.DateParution, validationMessage: "", htmlAttributes: new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(expression: model => model.Livre.Auteur.Nom, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(expression: model => model.Livre.Auteur.Nom, selectList: (SelectList)Model.Auteurs, htmlAttributes: new { @class = "form-control"})
-                @Html.ValidationMessageFor(expression: model => model.Livre.Auteur.Nom, validationMessage: "", htmlAttributes: new { @class = "text-danger"})
+                @Html.DropDownListFor(expression: model => model.Livre.Auteur.Nom, selectList: (SelectList)Model.Auteurs, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(expression: model => model.Livre.Auteur.Nom, validationMessage: "", htmlAttributes: new { @class = "text-danger" })
             </div>
         </div>
 
@@ -44,6 +67,7 @@
         </div>
     </div>
 }
+
 
 @ViewBag.test
 
