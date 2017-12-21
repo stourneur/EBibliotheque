@@ -4,26 +4,29 @@
     ViewBag.Title = "Index";
 }
 
-<script type="text/javascript">
-    jQuery.validator.addMethod("titreexiste",
-        function(value, element, params) {
-            var titre = $("#" + params.titre).val();
-            var livres = JSON.parse('@Html.Raw(Json.Encode(Model.Livres))');
+@section Script
+{
+    <script type="text/javascript">
+        jQuery.validator.addMethod("titreexiste",
+            function(value, element, params) {
+                var titre = $("#" + params.titre).val();
+                var livres = JSON.parse('@Html.Raw(Json.Encode(Model.Livres))');
 
-            for (var i = 0; i < livres.length; i++) {
-                if (livres[i].Titre.toLowerCase() === titre.toLowerCase())
-                    return false;
-            }
+                for (var i = 0; i < livres.length; i++) {
+                    if (livres[i].Titre.toLowerCase() === titre.toLowerCase())
+                        return false;
+                }
 
-            return true;
-        });
+                return true;
+            });
 
-    jQuery.validator.unobtrusive.adapters.add
-        ("titreexiste", ["titre"], function (options) {
+        jQuery.validator.unobtrusive.adapters.add
+        ("titreexiste", ["titre"], function(options) {
             options.rules["titreexiste"] = options.params;
             options.messages["titreexiste"] = options.message;
         });
-</script>
+    </script>
+}
 
 
 <h2>Ajouter un Livre</h2>
