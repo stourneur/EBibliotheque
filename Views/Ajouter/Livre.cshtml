@@ -8,15 +8,14 @@
     jQuery.validator.addMethod("titreexiste",
         function(value, element, params) {
             var titre = $("#" + params.titre).val();
-            var bool = true;
             var livres = JSON.parse('@Html.Raw(Json.Encode(Model.Livres))');
 
             for (var i = 0; i < livres.length; i++) {
-                if (livres[i].Titre.toLowerCase() === titre.toLowerCase()) {
-                    bool = false;
-                }
+                if (livres[i].Titre.toLowerCase() === titre.toLowerCase())
+                    return false;
             }
-            return bool;
+
+            return true;
         });
 
     jQuery.validator.unobtrusive.adapters.add
@@ -67,8 +66,5 @@
         </div>
     </div>
 }
-
-
-@ViewBag.test
 
 

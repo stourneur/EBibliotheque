@@ -25,7 +25,6 @@ namespace EBibliotheque.Controllers
         [HttpPost]
         public ActionResult Livre(AjouterViewModel vm)
         {
-            ViewBag.test = vm.Livre.Titre;
             if (!ModelState.IsValid)
             {
                 vm.Auteurs = new SelectList(Livres.ListeAuteurs, "Id", "Nom");
