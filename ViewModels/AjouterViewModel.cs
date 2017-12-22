@@ -11,6 +11,7 @@ namespace EBibliotheque.ViewModels
     {
         public SelectList Auteurs { get; set; }
         public Livre Livre { get; set; }
-        public List<Livre> Livres { get; set; } 
+        // Liste d'objet servant a la validation javascript
+        //public List<Livre> Livres { get; set; } 
     }
 }

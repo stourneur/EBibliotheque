@@ -1,10 +1,11 @@
-﻿@model EBibliotheque.ViewModels.AjouterViewModel
+﻿
+@model EBibliotheque.ViewModels.AjouterViewModel
 
 @{
     ViewBag.Title = "Index";
 }
-
-@section Script
+@* Méthode de validation de donnée *@
+@*@section Script
 {
     <script type="text/javascript">
         jQuery.validator.addMethod("titreexiste",
@@ -26,7 +27,7 @@
             options.messages["titreexiste"] = options.message;
         });
     </script>
-}
+}*@
 
 
 <h2>Ajouter un Livre</h2>
@@ -39,10 +40,10 @@
         <hr />
         @Html.ValidationSummary(excludePropertyErrors: true, message: "", htmlAttributes: new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(expression: model => model.Livre.Titre, htmlAttributes: new { @class = "control-label col-md-2", @for = "Titre" })
+            @Html.LabelFor(expression: model => model.Livre.Titre, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(expression: model => model.Livre.Titre, htmlAttributes: new { @class = "form-control", @id = "Titre" })
-                @Html.ValidationMessageFor(expression: model => model.Livre.Titre, validationMessage: "", htmlAttributes: new { @class = "text-danger" })
+                @Html.TextBoxFor(expression: model => model.Livre.Titre, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(expression: model => model.Livre.Titre, validationMessage: "", htmlAttributes: new { @class = "text-danger"  })
             </div>
         </div>
 
@@ -69,5 +70,3 @@
         </div>
     </div>
 }
-
-

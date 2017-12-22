@@ -85,5 +85,10 @@ namespace EBibliotheque.Models
             livres.Add(livre);
             return livre.Id;
         }
+
+        public static bool LivreExiste(string titre)
+        {
+            return ListeLivres.Any(livre => string.Compare(livre.Titre, titre, StringComparison.CurrentCultureIgnoreCase) == 0);
+        }
     }
 }

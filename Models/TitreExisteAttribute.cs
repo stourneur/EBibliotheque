@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
-
+// Classe qui valide les données coté serveur et coté client mais assez lourde
 namespace EBibliotheque.Models
 {
     
